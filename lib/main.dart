@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
+          /* SliverAppBar(
             floating: true,
             snap: true,
             pinned: true,
@@ -59,6 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 fit: BoxFit.cover,
               ),
             ),
+          ), */
+          SliverToBoxAdapter(
+            child: Container(
+              height: 150,
+              child: Center(child: Text('text')),
+            ),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -71,7 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          SliverGrid(
+          SliverToBoxAdapter(
+            child: Container(
+              height: 150,
+              child: Center(child: Text('text')),
+            ),
+          ),
+          SliverList(
             delegate: SliverChildListDelegate(
               [
                 for (int i = 0; i < _slivers; i++)
@@ -80,9 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: i % 2 == 0 ? Colors.yellow : Colors.black,
                   )
               ],
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
             ),
           ),
         ],
