@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const _title = '';
+  static const _title = 'Slivers';
 
   @override
   Widget build(BuildContext context) {
