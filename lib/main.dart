@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SliverList(
+            SliverGrid(
               delegate: SliverChildListDelegate(
                 [
                   for (int i = 0; i < _slivers; i++)
@@ -65,6 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: i % 2 == 0 ? Colors.yellow : Colors.black,
                     )
                 ],
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
               ),
             ),
           ],
