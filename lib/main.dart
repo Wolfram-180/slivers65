@@ -60,11 +60,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ), */
-          SliverToBoxAdapter(
+          /*        SliverToBoxAdapter(
             child: Container(
               height: 150,
               child: Center(child: Text('text')),
             ),
+          ), */
+          SliverPersistentHeader(
+            delegate: StickyHeaderDelegate(),
+            pinned: true,
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -77,12 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          SliverToBoxAdapter(
+          SliverPersistentHeader(
+            delegate: StickyHeaderDelegate(),
+            pinned: true,
+          ),
+          /*       SliverToBoxAdapter(
             child: Container(
               height: 150,
               child: Center(child: Text('text')),
             ),
-          ),
+          ), */
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -97,5 +105,29 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+}
+
+class StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: Colors.white,
+      child: const Center(
+        child: Text('text2'),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 150.0;
+
+  @override
+  double get minExtent => 50.0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }
