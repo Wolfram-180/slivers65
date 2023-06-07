@@ -38,65 +38,54 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ), */
-      body: Container(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              floating: true,
-              snap: true,
-              pinned: true,
-              title: Text(
-                widget.title,
-                style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-              expandedHeight: 150,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Image.network(
-                  _imgUrl,
-                  fit: BoxFit.cover,
-                ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            snap: true,
+            pinned: true,
+            title: Text(
+              widget.title,
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
               ),
             ),
-            SliverFillRemaining(
-              child: Container(
-                color: Colors.red,
+            expandedHeight: 150,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.network(
+                _imgUrl,
+                fit: BoxFit.cover,
               ),
             ),
-            /* SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  for (int i = 0; i < _slivers; i++)
-                    Container(
-                      height: 200,
-                      color: i % 2 == 0 ? Colors.green : Colors.red,
-                    )
-                ],
-              ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                for (int i = 0; i < _slivers; i++)
+                  Container(
+                    height: 200,
+                    color: i % 2 == 0 ? Colors.green : Colors.red,
+                  )
+              ],
             ),
-            SliverGrid(
-              delegate: SliverChildListDelegate(
-                [
-                  for (int i = 0; i < _slivers; i++)
-                    Container(
-                      height: 200,
-                      color: i % 2 == 0 ? Colors.yellow : Colors.black,
-                    )
-                ],
-              ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-              ),
-            ), */
-          ],
-        ),
+          ),
+          SliverGrid(
+            delegate: SliverChildListDelegate(
+              [
+                for (int i = 0; i < _slivers; i++)
+                  Container(
+                    height: 200,
+                    color: i % 2 == 0 ? Colors.yellow : Colors.black,
+                  )
+              ],
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+            ),
+          ),
+        ],
       ),
     );
   }
