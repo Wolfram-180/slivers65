@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const _title = 'Slivers';
+  static const _title = 'Slivers Demo';
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _slivers = 10;
+  String _imgUrl =
+      'https://raw.githubusercontent.com/Wolfram-180/apps_resources/main/surf_places/cfshp1.png';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,34 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(),
+      body: Container(
+        child: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  for (int i = 0; i < _slivers; i++)
+                    Container(
+                      height: 200,
+                      color: i % 2 == 0 ? Colors.green : Colors.red,
+                    )
+                ],
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  for (int i = 0; i < _slivers; i++)
+                    Container(
+                      height: 200,
+                      color: i % 2 == 0 ? Colors.yellow : Colors.black,
+                    )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
